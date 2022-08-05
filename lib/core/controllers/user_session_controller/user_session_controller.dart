@@ -6,9 +6,7 @@ part 'user_session_controller.g.dart';
 class UserSessionController = _UserSessionControllerBase with _$UserSessionController;
 
 abstract class _UserSessionControllerBase with Store {
-  final UserModel userModel;
+  late final UserModel userModel;
 
-  _UserSessionControllerBase({
-    required this.userModel,
-  });
+  _UserSessionControllerBase();
 }
