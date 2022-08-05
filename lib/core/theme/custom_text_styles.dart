@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:posterr/core/theme/custom_colors.dart';
 
 class CustomTextStyles {
-  static const Color _color = CustomColors.gray60;
+  const CustomTextStyles._();
+
+  static const instance = CustomTextStyles._();
+
+  static final Color _color = CustomColors.instance.gray60;
   static const FontWeight _lightWeight = FontWeight.w200;
   static const FontWeight _regularWeight = FontWeight.w400;
   static const FontWeight _boldWeight = FontWeight.w700;
@@ -14,7 +18,6 @@ class CustomTextStyles {
   static const double _headerFontSize = 20;
   static const double _titleFontSize = 24;
   static const double _bigTitleFontSize = 32;
-
 
   TextStyle bodyMicroLight({Color? color}) => TextStyle(
         fontSize: _bodyMicroFontSize,
