@@ -28,16 +28,28 @@ class HiveRepositoryImpl implements HiveRepository {
       usersBox = futures[0];
       postsBox = futures[1];
 
+      await usersBox.clear();
+
       if (usersBox.isEmpty) {
         for (var i = 0; i < 5; i++) {
-          saveUser(UserModel(
-            id: const ShortUuid().generate(),
-            name: Faker().person.name(),
-            email: Faker().internet.email(),
-            joinedDate: Faker().date.dateTime().toString(),
-          ));
+          saveUser(
+            UserModel(
+              id: const ShortUuid().generate(),
+              name: Faker().person.name(),
+              email: Faker().internet.email(),
+              country: Faker().address.country(),
+              city: Faker().address.city(),
+              joinedDate: Faker().date.dateTime(minYear: 2000, maxYear: 2022).toString(),
+              imageUrl: Faker().image.image(keywords: ['person']),
+              postsAmount: 0,
+              repostsAmount: 0,
+              quotesAmount: 0,
+            ),
+          );
         }
       }
+
+      log(usersBox.values.first);
 
       log('Hive repository initialized with:\nUsers: ${usersBox.values.length}\nPosts: ${postsBox.values.length}');
 
