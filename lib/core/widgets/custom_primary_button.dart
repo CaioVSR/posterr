@@ -16,7 +16,7 @@ class CustomPrimaryButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(CustomTheme.colors.newPurple),
+        backgroundColor: MaterialStateProperty.all(CustomTheme.colors.darkOrchid),
         foregroundColor: MaterialStateProperty.all(CustomTheme.colors.white),
         textStyle: MaterialStateProperty.all(CustomTheme.textStyles.bodyRegular()),
       ),
