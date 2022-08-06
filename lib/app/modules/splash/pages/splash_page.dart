@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:posterr/app/modules/splash/pages/splash_page_controller.dart';
 import 'package:posterr/core/theme/custom_theme.dart';
-import 'package:posterr/core/widgets/custom_modal_bottom_sheet.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
