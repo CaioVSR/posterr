@@ -38,6 +38,11 @@ flutter:
   generate: true
   assets:
     - assets/images/
+
+  fonts:
+    - family: Playlist Script
+      fonts: 
+        - asset: assets/fonts/Playlist-script.otf
     
 flutter_intl:
   enabled: true

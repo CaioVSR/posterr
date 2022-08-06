@@ -1,4 +1,7 @@
 {
+  "posterr": "posterr",
   "posts": "Posts",
-  "profile": "Profile"
+  "profile": "profile",
+  "quotes": "Quotes",
+  "reposts": "Reposts"
 }
