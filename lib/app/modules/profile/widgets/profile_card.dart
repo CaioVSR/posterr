@@ -44,22 +44,19 @@ class ProfileCard extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Text(
-          user.name.length > 14 ? '${user.name.substring(0, 14)} ...' : user.name,
+          AppFormatters.stringShortener(text: user.name),
           style: CustomTheme.textStyles.headerBold(),
           overflow: TextOverflow.ellipsis,
         ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-                '${user.city.length <= 12 ? user.city : '${user.city.substring(0, 12).trimRight()}...'} | ${user.country}',
-                style: CustomTheme.textStyles.bodySmallLight()),
-            Text(
-              'Joined at ${AppFormatters.formatDate(user.joinedDate)}',
-              style: CustomTheme.textStyles.bodySmallLight(),
-            ),
-          ],
+        const SizedBox(height: 4),
+        Text(
+          '${user.city} | ${user.country}',
+          style: CustomTheme.textStyles.bodySmallLight(),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'Joined at ${AppFormatters.formatDate(user.joinedDate)}',
+          style: CustomTheme.textStyles.bodyTinyLight(),
         ),
       ],
     );

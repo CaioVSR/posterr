@@ -8,7 +8,6 @@ import 'package:posterr/app/modules/profile/widgets/profile_card.dart';
 import 'package:posterr/app/modules/profile/widgets/tag_button.dart';
 import 'package:posterr/core/models/user_model/user_model.dart';
 import 'package:posterr/core/repositories/hive_repository/hive_repository_impl.dart';
-import 'package:posterr/core/theme/custom_colors.dart';
 import 'package:posterr/core/theme/custom_theme.dart';
 import 'package:posterr/core/utils/app_strings.dart';
 import 'package:posterr/core/widgets/custom_app_bar.dart';

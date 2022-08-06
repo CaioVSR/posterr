@@ -49,8 +49,6 @@ class HiveRepositoryImpl implements HiveRepository {
         }
       }
 
-      log(usersBox.values.first);
-
       log('Hive repository initialized with:\nUsers: ${usersBox.values.length}\nPosts: ${postsBox.values.length}');
 
       return right(null);
