@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:posterr/core/theme/custom_theme.dart';
 
 class CustomCircleAvatar extends StatelessWidget {
-  final String label;
+  final String imageUrl;
+  final double? radius;
+
   const CustomCircleAvatar({
     Key? key,
-    required this.label,
+    this.radius,
+    required this.imageUrl,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: CustomTheme.colors.robinsEggBlue,
-      child: Text(
-        label.substring(0, 2),
-        style: CustomTheme.textStyles.bodyBold(color: CustomTheme.colors.white),
+    return ClipOval(
+      clipper: RoundClipper(radius: radius ?? 24),
+      child: FadeInImage.assetNetwork(
+        placeholder: 'assets/images/chat.png',
+        image: imageUrl,
       ),
     );
   }
+}
+
+class RoundClipper extends CustomClipper<Rect> {
+  final double radius;
+
+  RoundClipper({required this.radius});
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromCircle(
+      center: Offset(size.width / 2, size.height / 2),
+      radius: radius,
+    );
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Rect> oldClipper) => false;
 }

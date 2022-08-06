@@ -6,7 +6,7 @@ class CustomTextStyles {
 
   static const instance = CustomTextStyles._();
 
-  static final Color _color = CustomColors.instance.gray60;
+  static final Color _color = CustomColors.instance.black;
   static const FontWeight _lightWeight = FontWeight.w200;
   static const FontWeight _regularWeight = FontWeight.w400;
   static const FontWeight _boldWeight = FontWeight.w700;
@@ -18,6 +18,13 @@ class CustomTextStyles {
   static const double _headerFontSize = 20;
   static const double _titleFontSize = 24;
   static const double _bigTitleFontSize = 32;
+  static const double _logoFontSize = 40;
+
+  TextStyle logo({Color? color}) => TextStyle(
+        color: color ?? _color,
+        fontSize: _logoFontSize,
+        fontFamily: 'Playlist Script',
+      );
 
   TextStyle bodyMicroLight({Color? color}) => TextStyle(
         fontSize: _bodyMicroFontSize,

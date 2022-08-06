@@ -11,7 +11,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     Key? key,
     this.leading,
     this.title,
-    this.centerTitle = false,
+    this.centerTitle = true,
     this.actions,
   }) : super(key: key);
 
@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: CustomTheme.colors.white,
-      titleTextStyle: CustomTheme.textStyles.titleBold(color: CustomTheme.colors.darkOrchid),
+      titleTextStyle: CustomTheme.textStyles.logo(color: CustomTheme.colors.black),
       elevation: 0,
       centerTitle: centerTitle,
       leading: leading,
