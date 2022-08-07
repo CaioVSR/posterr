@@ -1,9 +1,10 @@
 import 'dart:convert';
-import 'dart:developer';
+import 'dart:math';
 
 import 'package:dartz/dartz.dart';
 import 'package:faker/faker.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:posterr/core/models/post_model.dart/post_model.dart';
 import 'package:posterr/core/models/user_model/user_model.dart';
 import 'package:posterr/core/repositories/hive_repository/hive_repository.dart';
 import 'package:posterr/core/repositories/hive_repository/hive_repository_failures.dart';
@@ -16,7 +17,7 @@ class HiveRepositoryImpl implements HiveRepository {
   late final Box<String> postsBox;
 
   @override
-  Future<Either<HiveRepositoryFailures, void>> initialize() async {
+  Future<Either<HiveRepositoryFailures, UserModel>> initialize() async {
     try {
       await Hive.initFlutter();
 
@@ -49,9 +50,13 @@ class HiveRepositoryImpl implements HiveRepository {
         }
       }
 
-      log('Hive repository initialized with:\nUsers: ${usersBox.values.length}\nPosts: ${postsBox.values.length}');
+      var random = Random().nextInt(usersBox.values.length);
 
-      return right(null);
+      return right(
+        UserModel.fromJson(
+          jsonDecode(usersBox.getAt(random)!),
+        ),
+      );
     } catch (e) {
       return left(HiveRepositoryFailures.asUnknown());
     }
@@ -74,5 +79,19 @@ class HiveRepositoryImpl implements HiveRepository {
   @override
   int indexOfUser(String key) {
     return usersBox.values.toList().indexWhere((element) => UserModel.fromJson(jsonDecode(element)).id == key);
+  }
+
+  @override
+  Either<HiveRepositoryFailures, List<PostModel>> getUserPosts(String userId) {
+    try {
+      final postsList = postsBox.values
+          .map((json) => PostModel.fromJson(jsonDecode(json)))
+          .where((post) => post.userId == userId)
+          .toList();
+
+      return right(postsList);
+    } catch (e) {
+      return left(HiveRepositoryFailures.asUnknown());
+    }
   }
 }
