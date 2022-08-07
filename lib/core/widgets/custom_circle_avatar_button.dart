@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
 
-class CustomCircleAvatar extends StatelessWidget {
+class CustomCircleAvatarButton extends StatelessWidget {
   final String imageUrl;
   final double? radius;
+  final VoidCallback? onPressed;
 
-  const CustomCircleAvatar({
+  const CustomCircleAvatarButton({
     Key? key,
     this.radius,
     required this.imageUrl,
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: 'avatar',
-      child: ClipOval(
-        clipper: RoundClipper(radius: radius ?? 24),
-        child: FadeInImage.assetNetwork(
-          placeholder: 'assets/images/chat.png',
-          image: imageUrl,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Hero(
+        tag: 'avatar',
+        child: ClipOval(
+          clipper: RoundClipper(radius: radius ?? 24),
+          child: FadeInImage.assetNetwork(
+            placeholder: 'assets/images/chat.png',
+            image: imageUrl,
+          ),
         ),
       ),
     );
