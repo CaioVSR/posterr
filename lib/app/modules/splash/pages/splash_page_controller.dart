@@ -15,8 +15,7 @@ class SplashPageController {
 
   Future<void> initialize(BuildContext context) async {
     var result = await _hiveRepository.initialize();
-
-    if (result.isLeft()) {
+    result.fold((failure) {
       CustomModalBottomSheet.builder(
         context: context,
         isDismissible: false,
@@ -27,10 +26,11 @@ class SplashPageController {
           initialize(context);
         }),
       );
-    }
-
-    await Future.delayed(const Duration(seconds: 2), () {
-      Modular.to.navigate('/home/');
+    }, (user) async {
+      userSession.user = user;
+      await Future.delayed(const Duration(seconds: 2), () {
+        Modular.to.navigate('/home/');
+      });
     });
   }
 }

@@ -29,11 +29,10 @@ class _ProfilePageState extends State<ProfilePage> {
     return CustomScaffold(
       canPop: true,
       appBar: CustomAppBar(
-        leading: InkWell(
+        leading: GestureDetector(
           onTap: () => Navigator.pop(context),
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
-            color: CustomTheme.colors.darkOrchid,
           ),
         ),
         title: AppStrings.getStrings(context).profile,
@@ -50,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 8),
               Divider(
                 thickness: 1,
-                color: CustomTheme.colors.newPurple,
+                color: CustomTheme.colors.gray225,
               ),
               const SizedBox(height: 8),
               Row(

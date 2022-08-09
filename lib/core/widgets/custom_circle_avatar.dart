@@ -12,14 +12,11 @@ class CustomCircleAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: 'avatar',
-      child: ClipOval(
-        clipper: RoundClipper(radius: radius ?? 24),
-        child: FadeInImage.assetNetwork(
-          placeholder: 'assets/images/chat.png',
-          image: imageUrl,
-        ),
+    return ClipOval(
+      clipper: RoundClipper(radius: radius ?? 24),
+      child: FadeInImage.assetNetwork(
+        placeholder: 'assets/images/chat.png',
+        image: imageUrl,
       ),
     );
   }

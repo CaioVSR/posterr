@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posterr/core/widgets/custom_circle_avatar.dart';
 
 class CustomCircleAvatarButton extends StatelessWidget {
   final String imageUrl;
@@ -16,33 +17,7 @@ class CustomCircleAvatarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Hero(
-        tag: 'avatar',
-        child: ClipOval(
-          clipper: RoundClipper(radius: radius ?? 24),
-          child: FadeInImage.assetNetwork(
-            placeholder: 'assets/images/chat.png',
-            image: imageUrl,
-          ),
-        ),
-      ),
+      child: CustomCircleAvatar(imageUrl: imageUrl),
     );
   }
-}
-
-class RoundClipper extends CustomClipper<Rect> {
-  final double radius;
-
-  RoundClipper({required this.radius});
-
-  @override
-  Rect getClip(Size size) {
-    return Rect.fromCircle(
-      center: Offset(size.width / 2, size.height / 2),
-      radius: radius,
-    );
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Rect> oldClipper) => false;
 }

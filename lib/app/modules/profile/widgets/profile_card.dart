@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:posterr/app/modules/profile/widgets/quantity_badge.dart';
 import 'package:posterr/core/models/user_model/user_model.dart';
-import 'package:posterr/core/theme/custom_colors.dart';
 import 'package:posterr/core/theme/custom_theme.dart';
 import 'package:posterr/core/utils/app_formatters.dart';
 import 'package:posterr/core/utils/app_strings.dart';
