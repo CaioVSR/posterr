@@ -7,5 +7,7 @@ abstract class HiveRepository {
   Future<Either<HiveRepositoryFailures, UserModel>> initialize();
   Either<HiveRepositoryFailures, List<PostModel>> getUserPosts(String userId);
   Future<Either<HiveRepositoryFailures, void>> saveUser(UserModel user);
+  Future<Either<HiveRepositoryFailures, void>> savePost(PostModel post);
+  Either<HiveRepositoryFailures, List<PostModel>> getPosts();
   int indexOfUser(String key);
 }

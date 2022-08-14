@@ -5,7 +5,10 @@ import 'package:posterr/app/modules/profile/pages/profile_page_controller.dart';
 class ProfileModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => ProfilePageController()),
+    Bind.lazySingleton((i) => ProfilePageController(
+          postsRepository: i(),
+          userSessionController: i(),
+        )),
   ];
 
   @override

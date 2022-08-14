@@ -3,5 +3,13 @@
   "posts": "Posts",
   "profile": "profile",
   "quotes": "Quotes",
-  "reposts": "Reposts"
+  "reposts": "Reposts",
+  "newPost": "New post",
+  "post": "Post",
+  "emptyPostMessage": "You can't post an empty message",
+  "momentsAgo": "moments ago",
+  "minutesAgo": "minutes ago",
+  "hoursAgo": "hours ago",
+  "daysAgo": "days ago",
+  "you": "You"
 }

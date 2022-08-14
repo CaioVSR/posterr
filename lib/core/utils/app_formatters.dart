@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:posterr/core/utils/app_strings.dart';
 
 class AppFormatters {
   AppFormatters._();
@@ -16,5 +18,24 @@ class AppFormatters {
     }
 
     return text;
+  }
+
+  static String timeDifference({required String date, required BuildContext context}) {
+    final difference = DateTime.now().difference(DateTime.parse(date));
+    final strings = AppStrings.getStrings(context);
+
+    if (difference.inDays > 0) {
+      return '${difference.inDays.toString()} ${strings.daysAgo}';
+    }
+
+    if (difference.inHours > 0) {
+      return '${difference.inHours.toString()} ${strings.hoursAgo}';
+    }
+
+    if (difference.inMinutes > 0) {
+      return '${difference.inMinutes.toString()} ${strings.minutesAgo}';
+    }
+
+    return strings.momentsAgo;
   }
 }

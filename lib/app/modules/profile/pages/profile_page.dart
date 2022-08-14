@@ -1,16 +1,13 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:posterr/app/modules/profile/pages/profile_page_controller.dart';
 import 'package:posterr/app/modules/profile/widgets/profile_card.dart';
-import 'package:posterr/app/modules/profile/widgets/tag_button.dart';
-import 'package:posterr/core/models/user_model/user_model.dart';
-import 'package:posterr/core/repositories/hive_repository/hive_repository_impl.dart';
 import 'package:posterr/core/theme/custom_theme.dart';
 import 'package:posterr/core/utils/app_strings.dart';
 import 'package:posterr/core/widgets/custom_app_bar.dart';
+import 'package:posterr/core/widgets/custom_floating_action_button.dart';
+import 'package:posterr/core/widgets/custom_posts_list.dart';
 import 'package:posterr/core/widgets/custom_scaffold.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -21,7 +18,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final HiveRepositoryImpl _hiveRepository = Modular.get();
   final controller = Modular.get<ProfilePageController>();
 
   @override
@@ -44,7 +40,10 @@ class _ProfilePageState extends State<ProfilePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               ProfileCard(
-                user: UserModel.fromJson(jsonDecode(_hiveRepository.usersBox.values.first)),
+                user: controller.user,
+                postsCount: controller.postsCount,
+                repostsCount: controller.repostsCount,
+                quotesCount: controller.quotesCount,
               ),
               const SizedBox(height: 8),
               Divider(
@@ -52,30 +51,20 @@ class _ProfilePageState extends State<ProfilePage> {
                 color: CustomTheme.colors.gray225,
               ),
               const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TagButton(
-                    label: AppStrings.getStrings(context).posts,
-                    selected: controller.isPostSelected,
-                    onPressed: controller.togglePosts,
-                  ),
-                  TagButton(
-                    label: AppStrings.getStrings(context).reposts,
-                    selected: controller.isRepostSelected,
-                    onPressed: controller.toggleReposts,
-                  ),
-                  TagButton(
-                    label: AppStrings.getStrings(context).quotes,
-                    selected: controller.isQuoteSelected,
-                    onPressed: controller.toggleQuotes,
-                  ),
-                ],
+              Expanded(
+                child: CustomPostsList(
+                  postsList: controller.postsList,
+                  userId: controller.user.id,
+                ),
               ),
             ],
           ),
         );
       }),
+      floatingActionButton: CustomFloatingActionButton(
+        label: AppStrings.getStrings(context).newPost,
+        onPressed: controller.toPostPage,
+      ),
     );
   }
 }

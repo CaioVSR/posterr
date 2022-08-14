@@ -6,9 +6,6 @@ class UserModel {
   final String imageUrl;
   final String joinedDate;
   final String name;
-  final int postsAmount;
-  final int repostsAmount;
-  final int quotesAmount;
 
   UserModel({
     required this.city,
@@ -18,9 +15,6 @@ class UserModel {
     required this.imageUrl,
     required this.joinedDate,
     required this.name,
-    required this.postsAmount,
-    required this.repostsAmount,
-    required this.quotesAmount,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -32,9 +26,6 @@ class UserModel {
       imageUrl: json['imageUrl'],
       joinedDate: json['joinedDate'],
       name: json['name'],
-      postsAmount: json['postsAmount'],
-      repostsAmount: json['repostsAmount'],
-      quotesAmount: json['quotesAmount'],
     );
   }
 
@@ -47,9 +38,6 @@ class UserModel {
       'imageUrl': imageUrl,
       'joinedDate': joinedDate,
       'name': name,
-      'postsAmount': postsAmount,
-      'repostsAmount': repostsAmount,
-      'quotesAmount': quotesAmount,
     };
   }
 }

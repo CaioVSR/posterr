@@ -8,10 +8,16 @@ import 'package:posterr/core/widgets/custom_circle_avatar.dart';
 
 class ProfileCard extends StatelessWidget {
   final UserModel user;
+  final int postsCount;
+  final int repostsCount;
+  final int quotesCount;
 
   const ProfileCard({
     Key? key,
     required this.user,
+    required this.postsCount,
+    required this.repostsCount,
+    required this.quotesCount,
   }) : super(key: key);
 
   @override
@@ -33,9 +39,9 @@ class ProfileCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  QuantityBadge(label: AppStrings.getStrings(context).posts, quantity: user.postsAmount),
-                  QuantityBadge(label: AppStrings.getStrings(context).reposts, quantity: user.repostsAmount),
-                  QuantityBadge(label: AppStrings.getStrings(context).quotes, quantity: user.quotesAmount),
+                  QuantityBadge(label: AppStrings.getStrings(context).posts, quantity: postsCount),
+                  QuantityBadge(label: AppStrings.getStrings(context).reposts, quantity: repostsCount),
+                  QuantityBadge(label: AppStrings.getStrings(context).quotes, quantity: quotesCount),
                 ],
               ),
             ),
