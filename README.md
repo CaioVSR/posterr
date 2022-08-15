@@ -27,4 +27,4 @@ Sit back and enjoy =)!
 - If i got multiple crash reports about some specifics model I would resort to the Flutter inspector to check out how the app is performing, how my app is dealing with the memory and what is happening on the specif device during the debug. Assuming that the app has integration and ent-to-end tests, running these tests ont the Amazon device farm with some real devices would be another option to prevent these type of scenario.
 
 ### Demo
-[loom](https://www.loom.com/share/2fe23803f49a46a0b7ef72f1e3178256)) to show it in action to 
+[loom](https://www.loom.com/share/2fe23803f49a46a0b7ef72f1e3178256))
