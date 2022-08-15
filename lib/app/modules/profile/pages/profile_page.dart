@@ -52,9 +52,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const SizedBox(height: 8),
               Expanded(
-                child: CustomPostsList(
-                  postsList: controller.postsList,
-                  userId: controller.user.id,
+                child: RefreshIndicator(
+                  onRefresh: controller.refresh,
+                  child: CustomPostsList(
+                    postsList: controller.postsList,
+                    userId: controller.user.id,
+                  ),
                 ),
               ),
             ],

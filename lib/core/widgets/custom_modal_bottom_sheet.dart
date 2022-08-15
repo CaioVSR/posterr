@@ -44,7 +44,7 @@ class CustomModalBottomSheet {
                       ),
                     ),
                   ),
-                  CustomPrimaryButton(label: 'Send', onPressed: buttonOnPressed),
+                  CustomPrimaryButton(label: CustomTheme.imagesPaths.chatLogo, onPressed: buttonOnPressed),
                 ],
               )
             ],

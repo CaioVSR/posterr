@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posterr/core/theme/custom_theme.dart';
 
 class CustomCircleAvatar extends StatelessWidget {
   final String imageUrl;
@@ -15,7 +16,7 @@ class CustomCircleAvatar extends StatelessWidget {
     return ClipOval(
       clipper: RoundClipper(radius: radius ?? 24),
       child: FadeInImage.assetNetwork(
-        placeholder: 'assets/images/chat.png',
+        placeholder: CustomTheme.imagesPaths.chatLogo,
         image: imageUrl,
       ),
     );

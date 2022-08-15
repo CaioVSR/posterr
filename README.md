@@ -1,106 +1,26 @@
 # posterr
 
-A new Flutter project.
+### Getting started
 
-## Getting Started
+- Before running this app, make sure that you have the Flutter version 3.0.5 installed.
+- First run the command ```flutter pub get```.
+- Then re-run you code editor analyzer.
+- Last run the command ```flutter pub run build_runner build --delete-conflicting-outputs```.
 
-This project is a starting point for a Flutter application.
+### What to expect
 
-A few resources to get you started if this is your first Flutter project:
+On the first run the app will create 5 random users, every time you reload the app you will be provided another random user (keep in mind that you might get the same one).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+You can quote or repost the original post from another repost.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can use the "pull to refresh" method. Since this is a dummy app it will only update the hour information from the posts.
 
-# challenge
+The architecture used in this project was the "Flutter Modular Architecture" developed by the Flutterando team. It is a kind of MVC but a little bit more refined.
 
-# Strider Mobile assessment - 2.1
+Sit back and enjoy =)!
 
-# Briefing
-
-View test instructions, submission instructions, and evaluation criteria in the briefing:
-
-[Strider Technical Assessment Briefing ](https://www.notion.so/Strider-Technical-Assessment-Briefing-ecf69c8281e34c14ab1d29a46eeb5cdf)
-
-# Project Description
-
-## Overview
-
-The Project Manager you work with wants to build a new product, a new social media application called Posterr. Posterr is very similar to Twitter, but it has far fewer features.
-
-Posterr only has two screens, the home (default), and the user profile screen, which are described below. Other data and actions are also detailed below.
-
-### Screens
-
-**Home**
-
-- The home, by default, will show a feed of all posts (including reposts and quote posts) from all users
-- New posts can be written from this screen
-
-**User profile**
-
-- Shows data about the user:
-    - Username
-    - Date joined Posterr, formatted as such: "March 25, 2021"
-    - Count of number of posts the user has made per type (e.g posts: 1, reposts: 3, quote-posts: 1)
-- Shows a feed of all posts the user has made (including reposts and quote posts)
-- New posts can be written from this screen: for the sake of this assessment, when writing a post from the profile screen, the profile's user should be set as the author of the new content.
-
-### More Details
-
-**Users**
-
-- Only alphanumeric characters can be used for username
-- Maximum 14 characters for username
-- Do not build authentication
-- Do not build user creation/editing/deletion, users should be read-only (please define a list of at least 4 users)
-- To make your application function, you should hard-code the default user, setting it to one of the predefined options
-
-**Posts**
-
-Posts are the equivalent of Twitter's tweets. They are text-only, user-generated content. Users can write original posts and interact with other users' posts by reposting or quote-posting. For this project, you should implement all three — original posts, reposts, and quote-posting
-
-- Users are not allowed to post more than 5 posts in one day (including reposts and quote posts)
-- Posts can have a maximum of 777 characters
-- When writing a post, a user should see how many characters she/he has left
-- Users cannot update or delete their posts
-- Reposting: Users can repost other users' posts (like Twitter Retweet)
-- Quote-post: Users can repost other user's posts and leave a comment along with it (like Twitter Quote Tweet)
-
-## Phase 1, coding
-
-Estimated time: 5 hours
-
-- Build out a mobile app using a framework of your choice that covers the features described in this assessment
-- This app should be built with a RESTful API in mind but it must work entirely with local data for the initial version, allowing evaluators to fully test and demo it.
-- Do not implement additional features beyond what is explained in the overview.
-- Do not build the backend / API endpoints
-- UX and UI should be reasonably good but they're not the main focus of the challenge, you're free to use any app as a visual reference.
-
-## Phase 2, demo
-
-Estimated time: 15 minutes
-
-To demo software is always a risky move so your product manager asked you to record the app behavior (e.g using [loom](https://www.loom.com/screen-recorder)) to show it in action to some potential investors during a pitch presentation. 
-The record should show off **all the app features** and be attached to your project zip file.
-
-- The video should have a max of 3 minutes
-- Speaking and showing up yourself in the video is optional
-- Make sure you show the features in an organized way
-
-## Phase 3, self-critique & scaling
-
-Estimated time: 30 minutes
-
-In any project, it is always a challenge to get the code perfectly how you'd want it. Here is what you need to do for this section:
-
-**Please provide as much detail as possible!**
-
-- Reflect on this project, and write what you would improve if you had more time.
-- Assuming you've got multiple crash reports and reviews saying the app is not working properly and is slow for specific models, what would be your strategy to tackle the problem? (assuming the app is supposed to work well for these models)
-- Assuming your app has now thousands of users thus a lot of posts to show in the feed. What do you believe should be improved in this initial version and what strategies/proposals you could formulate for such a challenge?
-
-This should be added as a section called "Critique" in the README.
+### Critique
+- The thing that bothered me the most when I was writing this code  was writing it without at least the units tests. If I had more time, that would be my main concern.
+- If I was developing an production app and thinking about scaling, I would definitely go with the clean architecture and micro-front-end approach.
+- Again, If this was a production app, the feed list would be paginated and preferably using some streamed data. All the methods for filtering and sorting would already been provided from the back-end service therefore removing the necessity of the data manipulation on the front-end side.
+- If i got multiple crash reports about some specifics model I would resort to the Flutter inspector to check out how the app is performing, how my app is dealing with the memory and what is happening on the specif device during the debug. Assuming that the app has integration and ent-to-end tests, running these tests ont the Amazon device farm with some real devices would be another option to prevent these type of scenario.

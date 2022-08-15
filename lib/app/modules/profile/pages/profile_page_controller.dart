@@ -58,4 +58,9 @@ abstract class _ProfilePageControllerBase with Store {
       getPosts();
     }
   }
+
+  Future<void> refresh() async {
+    getPosts();
+    return;
+  }
 }
