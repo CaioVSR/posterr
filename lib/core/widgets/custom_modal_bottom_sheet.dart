@@ -5,53 +5,6 @@ import 'package:posterr/core/widgets/custom_primary_button.dart';
 class CustomModalBottomSheet {
   CustomModalBottomSheet._();
 
-  static post({
-    required BuildContext context,
-    required TextEditingController textController,
-    required String title,
-    required String body,
-    required VoidCallback buttonOnPressed,
-    String? buttonLabel,
-  }) {
-    const maxLength = 777;
-    const maxLines = 20;
-
-    return showModalBottomSheet(
-        context: context,
-        enableDrag: true,
-        isDismissible: true,
-        backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        isScrollControlled: true,
-        builder: (context) {
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              const CloseModal(isDismissible: true),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: TextFormField(
-                      controller: textController,
-                      maxLength: maxLength,
-                      autofocus: true,
-                      maxLines: maxLines,
-                      onChanged: (value) {},
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  CustomPrimaryButton(label: CustomTheme.imagesPaths.chatLogo, onPressed: buttonOnPressed),
-                ],
-              )
-            ],
-          );
-        });
-  }
-
   static builder({
     required BuildContext context,
     required bool isDismissible,

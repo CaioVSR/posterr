@@ -22,15 +22,9 @@ Sit back and enjoy =)!
 ### Critique
 - The thing that bothered me the most when I was writing this code  was writing it without at least the units tests. If I had more time, that would be my main concern.
 - If I was developing an production app and thinking about scaling, I would definitely go with the clean architecture and micro-front-end approach.
+- Another thing that I would do if I had more time was adding the proper error message for the user.
 - Again, If this was a production app, the feed list would be paginated and preferably using some streamed data. All the methods for filtering and sorting would already been provided from the back-end service therefore removing the necessity of the data manipulation on the front-end side.
 - If i got multiple crash reports about some specifics model I would resort to the Flutter inspector to check out how the app is performing, how my app is dealing with the memory and what is happening on the specif device during the debug. Assuming that the app has integration and ent-to-end tests, running these tests ont the Amazon device farm with some real devices would be another option to prevent these type of scenario.
 
-
-Estimated time: 15 minutes
-
-To demo software is always a risky move so your product manager asked you to record the app behavior (e.g using [loom](https://www.loom.com/screen-recorder)) to show it in action to some potential investors during a pitch presentation. 
-The record should show off **all the app features** and be attached to your project zip file.
-
-- The video should have a max of 3 minutes
-- Speaking and showing up yourself in the video is optional
-- Make sure you show the features in an organized way
+### Demo
+[loom](https://www.loom.com/share/2fe23803f49a46a0b7ef72f1e3178256)) to show it in action to 
