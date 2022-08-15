@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:posterr/core/theme/custom_theme.dart';
 
@@ -15,9 +16,10 @@ class CustomCircleAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipOval(
       clipper: RoundClipper(radius: radius ?? 24),
-      child: FadeInImage.assetNetwork(
-        placeholder: CustomTheme.imagesPaths.chatLogo,
-        image: imageUrl,
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        placeholder: (context, url) => Image.asset(CustomTheme.imagesPaths.chatLogo),
+        errorWidget: (context, url, error) => Image.asset(CustomTheme.imagesPaths.chatLogo),
       ),
     );
   }
